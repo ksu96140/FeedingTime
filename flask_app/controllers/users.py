@@ -37,11 +37,16 @@ def login():
         flash("Invalid email or password!", "login")
         return redirect('/')
     session['user_id'] = user_in_db.id
-    session['user_fullname'] = user_in_db.first_name + ' ' + user_in_db.last_name
-    return redirect('/dashboard')
+    session['user_name'] = user_in_db.first_name
+    return redirect('/score')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
 
 @app.route('/score')
-def success():
+def homepage():
     if 'user_id' not in session:
         return redirect('/')
     return render_template('score.html')

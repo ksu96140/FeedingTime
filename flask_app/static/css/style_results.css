@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+.header{
+    width: 90%;
+    margin: auto;
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header > h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center {
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    background-color: aquamarine;
+}
+.center > img {
+    height: 600px;
+}
