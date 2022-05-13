@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from flask_app import app
 from flask_app.models.user import User
+from flask_app.models.attempt import Attempt
+from flask_app.models.comment import Comment
+from flask_app.models.inventory import Inventory
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -23,6 +26,10 @@ def register():
     }
     User.create(data)
     user_in_db = User.get_user(data)
+    newUser = {
+        'user_id' : user_in_db.id
+    }
+    Inventory.create(newUser)
     session['user_id'] = user_in_db.id
     return redirect('/score')
 
@@ -49,4 +56,9 @@ def logout():
 def homepage():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('score.html')
+    data = {
+        'user_id': session['user_id'],
+    }
+    all_attempts = Attempt.get_user_attempts(data)
+    all_comments = Comment.get_all(data)
+    return render_template('score.html', attempts=all_attempts, comments=all_comments)

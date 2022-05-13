@@ -12,8 +12,13 @@
 }
 .center_img{
     width: 90%;
-    height: 600px; 
     margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+}
+.mocha{
+    height: 500px;
 }
 .end{
     width: 90%;
@@ -26,7 +31,18 @@
     width: 90%;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     background-color: greenyellow;
 }
+.inventory_items {
+    height: 60px;
+}
+td {
+    vertical-align: middle;
+    text-align: center;
+}
+input[type='number']{
+    width: 35px;
+} 

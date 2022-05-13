@@ -26,6 +26,13 @@
     display: flex;
     justify-content: space-around;
 }
+.row3 {
+    width: 100%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
 .start {
     width: 90%;
     margin: auto;
@@ -40,4 +47,23 @@
     justify-content: space-between;
     align-items: center;
     background-color: greenyellow;
+}
+.shop_items {
+    height: 150px;
+}
+.inventory_items {
+    height: 60px;
+}
+figcaption {
+    text-align: center;
+}
+figure > input {
+    display: block;
+    margin: auto;
+}
+.errors > p {
+    text-align: center;
+}
+td {
+    vertical-align: middle;
 }

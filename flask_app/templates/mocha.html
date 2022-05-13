@@ -11,19 +11,38 @@
 <body>
     <div class="title">
         <h1>Mocha is hungry!</h1>
-        <h5>Tap inventory food to feed!</h5>
+        <h5>Click [ Feed! ] to feed Mocha</h5>
     </div>
     <div class="center_img">
-        <img src="" alt="mocha">
-    </div>
-    <div class="end">
-        <a href="/end"><button>End Feeding</button></a>
+        <img src="static\img\mocha_pics\feeding1.jpeg" alt="mocha" class="mocha">
     </div>
     <div class="bottom">
-        <div class="inventory">
-            <h2>Inventory</h2>
-        </div>
-        <h2>Gold</h2>
+        <form action="/feed" method="post">
+            <table class="table">
+                <tr>
+                    <td><h2>Inventory</h2></td>
+                    <td><img src="static\img\store_items\carrot.jpg" alt="carrot" class="inventory_items"></td>
+                    <td><img src="static\img\store_items\apple.jpg" alt="apple" class="inventory_items"></td>
+                    <td><img src="static\img\store_items\rice.jpg" alt="rice" class="inventory_items"></td>
+                    <td><img src="static\img\store_items\cheese.jpg" alt="cheese" class="inventory_items"></td>
+                    <td><img src="static\img\store_items\salmon.jpg" alt="fish" class="inventory_items"></td>
+                    <td><img src="static\img\store_items\chicken.jpg" alt="chicken" class="inventory_items"></td>                        
+                    <td><img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="inventory_items"></td>
+                    <td><img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="inventory_items"></td>
+                </tr>
+                <tr>
+                    <td><button>Feed!</button></td>
+                    <td><input type="number" name="carrot" min="0" max="{{inventory['carrot']}}" value="{{inventory['carrot']}}"></td>
+                    <td><input type="number" name="apple" min="0" max="{{inventory['apple']}}" value="{{inventory['apple']}}"></td>
+                    <td><input type="number" name="rice" min="0" max="{{inventory['rice']}}" value="{{inventory['rice']}}"></td>
+                    <td><input type="number" name="cheese" min="0" max="{{inventory['cheese']}}" value="{{inventory['cheese']}}"></td>
+                    <td><input type="number" name="fish" min="0" max="{{inventory['fish']}}" value="{{inventory['fish']}}"></td>
+                    <td><input type="number" name="chicken" min="0" max="{{inventory['chicken']}}" value="{{inventory['chicken']}}"></td>
+                    <td><input type="number" name="blueberry" min="0" max="{{inventory['blueberry']}}" value="{{inventory['blueberry']}}"></td>
+                    <td><input type="number" name="popcorn" min="0" max="{{inventory['popcorn']}}" value="{{inventory['popcorn']}}"></td>
+                </tr>
+            </table>
+        </form>
     </div>
 </body>
 </html>

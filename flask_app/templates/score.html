@@ -19,7 +19,7 @@
     <div class="body">
         <div class="left">
             <h1>My Attempts</h1>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Attempt #</th>
@@ -29,19 +29,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    {% for attempt in attempts %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{attempt['score']}}</td>
+                        <td>{{attempt['likes']}}</td>
+                        <td>{{attempt['updated_at']}}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
         <div class="right">
             <h1>Comments</h1>
-            <table>
-                
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Comment</th>
+                        <th>Commenter</th>
+                        <th>Comment Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in comments %}
+                    <tr>
+                        <td>{{comment['comment']}}</td>
+                        <td>-{{comment['name']}}</td>
+                        <td>{{comment['updated_at']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>
     <div class="shop">
-        <a href="/shop"><button>Back to Shop</button></a>
+        <a href="/shop"><button>Start Next Feeding Session!</button></a>
     </div>
     
 </body>

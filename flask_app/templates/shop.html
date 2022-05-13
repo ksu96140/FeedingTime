@@ -17,52 +17,95 @@
         </div>
     </div>
     <div class="shelf">
-        <div class="row1">
-            <figure>
-                <img src="" alt="carrot">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="apple">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="white rice">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="cheese">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-        </div>
-        <div class="row2">
-            <figure>
-                <img src="" alt="fish">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="chicken">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="blueberry">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="popcorn">
-                <figcaption>Your label goes here</figcaption>
-            </figure>
-        </div>
-
+        <form action="/purchase" method="post">
+            <div class="row1">
+                <figure>
+                    <img src="static\img\store_items\carrot.jpg" alt="carrot" class="shop_items">
+                    <figcaption>Price: $5</figcaption>
+                    <input type="number" name="carrot" min="0" max="5" value="0">
+                </figure>
+                <figure>
+                    <img src="static\img\store_items\apple.jpg" alt="apple" class="shop_items">
+                    <figcaption>Price: $9</figcaption>
+                    <input type="number" name="apple" min="0" max="5" value="0">
+                </figure>
+                <figure>
+                    <img src="static\img\store_items\rice.jpg" alt="white rice" class="shop_items">
+                    <figcaption>Price: $8</figcaption>
+                    <input type="number" name="rice" min="0" max="5" value="0">
+                </figure>
+                <figure>
+                    <img src="static\img\store_items\cheese.jpg" alt="cheese" class="shop_items">
+                    <figcaption>Price: $7</figcaption>
+                    <input type="number" name="cheese" min="0" max="5" value="0">
+                </figure>
+            </div>
+            <div class="row2">
+                <figure>
+                    <img src="static\img\store_items\salmon.jpg" alt="fish" class="shop_items">
+                    <figcaption>Price: $15</figcaption>
+                    <input type="number" name="fish" min="0" max="5" value="0">
+                </figure>
+                <figure>
+                    <img src="static\img\store_items\chicken.jpg" alt="chicken" class="shop_items">
+                    <figcaption>Price: $12</figcaption>
+                    <input type="number" name="chicken" min="0" max="5" value="0">
+                </figure>
+                <figure>
+                    <img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="shop_items">
+                    <figcaption>Price: $3</figcaption>
+                    <input type="number" name="blueberry" min="0" max="5" value="0">
+                </figure>
+                <figure>
+                    <img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="shop_items">
+                    <figcaption>Price: $1</figcaption>
+                    <input type="number" name="popcorn" min="0" max="5" value="0">
+                </figure>
+            </div>
+            <div class="row3">
+                <button>Purchace Items</button>
+            </div>
+            <div class="errors">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="text-danger">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </form>
     </div>
     <div class="start">
         <a href="/start"><button>Start Feeding!</button></a>
     </div>
     <div class="bottom">
         <div class="inventory">
-            <h2>Inventory</h2>
+            <table class="table">
+                <tr>
+                    <td><h2>Inventory</h2></td>
+                    <td><img src="static\img\store_items\carrot.jpg" alt="carrot" class="inventory_items"></td>
+                    <td><h3> x{{inventory['carrot']}} </h3></td>
+                    <td><img src="static\img\store_items\apple.jpg" alt="apple" class="inventory_items"></td>
+                    <td><h3> x{{inventory['apple']}} </h3></td>
+                    <td><img src="static\img\store_items\rice.jpg" alt="rice" class="inventory_items"></td>
+                    <td><h3> x{{inventory['rice']}} </h3></td>
+                    <td><img src="static\img\store_items\cheese.jpg" alt="cheese" class="inventory_items"></td>
+                    <td><h3> x{{inventory['cheese']}} </h3></td>
+                    <td><img src="static\img\store_items\salmon.jpg" alt="fish" class="inventory_items"></td>
+                    <td><h3> x{{inventory['fish']}} </h3></td>
+                    <td><img src="static\img\store_items\chicken.jpg" alt="chicken" class="inventory_items"></td>
+                    <td><h3> x{{inventory['chicken']}} </h3></td>
+                    <td><img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="inventory_items"></td>
+                    <td><h3> x{{inventory['blueberry']}} </h3></td>
+                    <td><img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="inventory_items"></td>
+                    <td><h3> x{{inventory['popcorn']}} </h3></td>
+                </tr>
+            </table>
         </div>
-        <h2>Gold</h2>
+        <div class="gold">
+            <h2>Gold: ${{session['gold']}}</h2>
+        </div>
     </div>
 </body>
 </html>

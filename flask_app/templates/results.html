@@ -10,17 +10,28 @@
 </head>
 <body>
     <div class="header">
-        <h1>Mocha is (?)</h1>
+        {% if session['score'] >= 150 %}
+            <h1>Mocha is Happy!</h1>
+        {% elif session['score'] >= 80 and session['score'] < 150 %}
+            <h1>Mocha wants more!!</h1>
+        {% else %}
+            <h1>Mocha is still hungry!!!</h1>
+        {% endif %}
         <div class="headerButtons">
             <a href="/score"><button>My Scores</button></a>
             <a href="/logout"><button>Log Out</button></a>
         </div>
     </div>
     <div class="center">
-        <img src="" alt="mocha_reaction">
-        <h4>My Score: </h4>
-        <h4>Gold Earned: </h4>
-        <h4>Cumulative Attempt Score: </h4>
+        {% if session['score'] >= 150 %}
+            <img src="static\img\mocha_pics\mocha_happy.jpeg" alt="mocha_happy">
+        {% elif session['score'] >= 80 and session['score'] < 150 %}
+            <img src="static\img\mocha_pics\mocha_wants_more.jpeg" alt="mocha_wants_more">
+        {% else %}
+            <img src="static\img\mocha_pics\mocha_hungry.jpg" alt="mocha_hungry">
+        {% endif %}
+        
+        <h4>My Score: {{session['score']}}</h4>
         <a href="/leaderboard"><button>Leaderboard</button></a>
     </div>
 </body>
