@@ -6,7 +6,8 @@ from flask_app.models.attempt import Attempt
 @app.route('/start')
 def startFeeding():
     data = {
-        'user_id' : session['user_id']
+        'user_id' : session['user_id'],
+        'id' : session['inventory']
     }
     session['attempt'] = Attempt.create(data)
     return render_template('mocha.html', inventory=Inventory.view(data))
@@ -35,8 +36,9 @@ def feed():
 
 @app.route('/end')
 def endFeeding():
+    session.pop('inventory')
     return render_template('results.html')
 
 @app.route('/leaderboard')
 def leaderboard():
-    return render_template('leaderboard.html')
+    return render_template('leaderboard.html', leaderboard=Attempt.best_attempt())

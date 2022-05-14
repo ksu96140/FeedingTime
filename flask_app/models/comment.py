@@ -13,7 +13,7 @@ class Comment:
     #create comment
     @classmethod
     def comment(cls, data):
-        query = "INSERT INTO comments (name, comment, user_id) VALUES (%(name)s, %(comment)s, %(user_id)s)"
+        query = "INSERT INTO comments (commenter_id, name, comment, user_id) VALUES (%(commenter_id)s, %(name)s, %(comment)s, %(user_id)s)"
         return connectToMySQL(cls.db).query_db(query, data)
     
     #get all comments for user

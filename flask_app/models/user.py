@@ -23,10 +23,19 @@ class User:
         query = 'INSERT INTO users (first_name, last_name, birthday, email, password) VALUES (%(first_name)s, %(last_name)s, %(birthday)s, %(email)s, %(password)s)'
         return connectToMySQL(cls.db).query_db(query, data)
     
-    #get user info
+    #get user info by email
     @classmethod
     def get_user(cls, data):
         query = 'SELECT * FROM users WHERE email=%(email)s'
+        result = connectToMySQL(cls.db).query_db(query, data)
+        if len(result) < 1:
+            return False
+        return cls(result[0])
+    
+    #get user info by user_id
+    @classmethod
+    def view_player(cls, data):
+        query = 'SELECT * FROM users WHERE id=%(user_id)s'
         result = connectToMySQL(cls.db).query_db(query, data)
         if len(result) < 1:
             return False

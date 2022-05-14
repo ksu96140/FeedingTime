@@ -26,11 +26,8 @@ def register():
     }
     User.create(data)
     user_in_db = User.get_user(data)
-    newUser = {
-        'user_id' : user_in_db.id
-    }
-    Inventory.create(newUser)
     session['user_id'] = user_in_db.id
+    session['user_name'] = user_in_db.first_name
     return redirect('/score')
 
 @app.route('/login', methods=['POST'])
@@ -54,6 +51,10 @@ def logout():
 
 @app.route('/score')
 def homepage():
+    if 'attempt' in session:
+        session.pop('attempt')
+    if 'inventory' in session:
+        session.pop('inventory')
     if 'user_id' not in session:
         return redirect('/')
     data = {
@@ -62,3 +63,15 @@ def homepage():
     all_attempts = Attempt.get_user_attempts(data)
     all_comments = Comment.get_all(data)
     return render_template('score.html', attempts=all_attempts, comments=all_comments)
+
+#view other players
+@app.route('/score/<int:user_id>')
+def view_page(user_id):
+    data = {
+        'user_id' : user_id
+    }
+    user_data = User.view_player(data)
+    all_attempts = Attempt.get_user_attempts(data)
+    all_comments = Comment.get_all(data)
+    print(User.view_player(data).first_name)
+    return render_template('view_player.html', user=user_data, attempts=all_attempts, comments=all_comments)

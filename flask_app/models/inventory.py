@@ -27,7 +27,7 @@ class Inventory:
     #get inventory
     @classmethod
     def view(cls, data):
-        query = "SELECT * FROM inventories WHERE user_id=%(user_id)s"
+        query = "SELECT * FROM inventories WHERE user_id=%(user_id)s AND id=%(id)s"
         result = connectToMySQL(cls.db).query_db(query, data)
         if len(result) < 1:
             return False
@@ -36,13 +36,13 @@ class Inventory:
     #update inventory
     @classmethod
     def update(cls, data):
-        query = "UPDATE inventories SET carrot=carrot+%(carrot)s, apple=apple+%(apple)s, rice=rice+%(rice)s, cheese=cheese+%(cheese)s, fish=fish+%(fish)s, chicken=chicken+%(chicken)s, blueberry=blueberry+%(blueberry)s, popcorn=popcorn+%(popcorn)s WHERE user_id=%(user_id)s"
+        query = "UPDATE inventories SET carrot=carrot+%(carrot)s, apple=apple+%(apple)s, rice=rice+%(rice)s, cheese=cheese+%(cheese)s, fish=fish+%(fish)s, chicken=chicken+%(chicken)s, blueberry=blueberry+%(blueberry)s, popcorn=popcorn+%(popcorn)s WHERE user_id=%(user_id)s AND id=%(id)s"
         return connectToMySQL(cls.db).query_db(query, data)
     
     #check gold
     @classmethod
     def gold(cls, data):
-        query = "SELECT gold FROM inventories WHERE user_id=%(user_id)s"
+        query = "SELECT gold FROM inventories WHERE user_id=%(user_id)s AND id=%(id)s"
         result = connectToMySQL(cls.db).query_db(query, data)
         return result[0]['gold']
 

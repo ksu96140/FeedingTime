@@ -17,23 +17,44 @@
         </div>
     </div>
     <div class="center">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Player Name</th>
-                    <th>Score</th>
-                    <th>Likes</th>
+                    <th>Best Score</th>
                     <th>Attempt Date</th>
                     <th>Make a Comment</th>
                 </tr>
             </thead>
             <tbody>
-
+                {% for highscore in leaderboard %}
+                <tr>
+                    {% if highscore['user_id'] == session['user_id'] %}
+                    <td>{{highscore['first_name'] + ' ' + highscore['last_name']}}</td>
+                    {% else %}
+                    <td><a href="/score/{{highscore['user_id']}}">{{highscore['first_name'] + ' ' + highscore['last_name']}}</a></td>
+                    {% endif %}
+                    <td>{{highscore['MAX(score)']}}</td>
+                    <td>{{highscore['updated_at']}}</td>
+                    <td>
+                        {% if highscore['user_id'] == session['user_id'] %}
+                            *YOU*
+                        {% else %}
+                        <form action="/comment" method="post">
+                            <input type="hidden" name="name" value="{{session['user_name']}}">
+                            <input type="hidden" name="user_id" value="{{highscore['user_id']}}">
+                            <textarea name="comment" rows="2" cols="30"></textarea>
+                            <button>Post</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
     <div class="back">
-        <a href="/shop"><button>Back to Shop</button></a>
+        <a href="/shop_new"><button>Start Next Feeding Session!</button></a>
     </div>
 </body>
 </html>

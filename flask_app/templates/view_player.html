@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Welcome, {{session['user_name']}}!</h1>
+        <h1>{{user.first_name}}'s Page</h1>
         <div class="headerButtons">
             <a href="/leaderboard"><button>Leaderboard</button></a>
             <a href="/logout"><button>Log Out</button></a>
@@ -22,7 +22,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Best Attempts</th>
+                        <th>Attempt #</th>
                         <th>Score</th>
                         <th>Attempt Date</th>
                     </tr>
@@ -52,15 +52,22 @@
                 <tbody>
                     {% for comment in comments %}
                     <tr>
+                        {% if comment['commenter_id'] == session['user_id'] %}
+                        <form action="/edit_comment" method="post">
+                            <input type="hidden" name="id" value="{{comment['id']}}">
+                            <input type="hidden" name="user_id" value="{{comment['user_id']}}">
+                            <td>
+                                <input type="text" name="comment" placeholder="{{comment['comment']}}">
+                            </td>
+                            <td>-{{comment['name']}}</td>
+                            <td>{{comment['updated_at']}}</td>
+                            <td><button>EDIT</button></td>
+                        </form>
+                        {% else %}
                         <td>{{comment['comment']}}</td>
                         <td>-{{comment['name']}}</td>
                         <td>{{comment['updated_at']}}</td>
-                        <td>
-                            <form action="/delete_comment" method="post">
-                                <input type="hidden" name="id" value="{{comment['id']}}">
-                                <button>DELETE</button>
-                            </form>
-                        </td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -68,7 +75,7 @@
         </div>
     </div>
     <div class="shop">
-        <a href="/shop_new"><button>Start Next Feeding Session!</button></a>
+        <a href="/score"><button>Back to Home Page</button></a>
     </div>
     
 </body>
