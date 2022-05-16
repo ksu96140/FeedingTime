@@ -6,7 +6,7 @@
 }
 body {
     background-color: antiquewhite;
-    min-height: 400px;
+    min-height: 600px;
     margin-bottom: 400px;
 }
 .header{
@@ -62,6 +62,7 @@ body {
     justify-content: flex-end;
 }
 .bottom {
+    pointer-events: none;
     position: fixed;
     bottom: 0;
     width: 100%;

@@ -5,6 +5,8 @@ from flask_app.models.inventory import Inventory
 #new inventory
 @app.route('/shop_new')
 def shop_new():
+    if 'user_id' not in session:
+        return redirect('/')
     data = {
         'user_id' : session['user_id']
     }
@@ -17,6 +19,10 @@ def shop_new():
 #updated inventory shop
 @app.route('/shop_current')
 def shop_current():
+    if 'user_id' not in session:
+        return redirect('/')
+    if 'inventory' not in session:
+        return redirect('/score')
     data = {
         'user_id' : session['user_id'],
         'id' : session['inventory']

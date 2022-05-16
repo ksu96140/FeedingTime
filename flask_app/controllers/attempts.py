@@ -38,15 +38,24 @@ def feed():
 
 @app.route('/end')
 def endFeeding():
+    if 'user_id' not in session:
+        return redirect('/')
     if 'inventory' not in session:
         return redirect('/score')
     if 'attempt' not in session:
         return redirect('/score')
     session.pop('inventory')
+    session.pop('gold')
     return render_template('results.html')
 
 @app.route('/leaderboard')
 def leaderboard():
+    if 'user_id' not in session:
+        return redirect('/')
     if 'player_id' in session:
         session.pop('player_id')
+    if 'gold' in session:
+        session.pop('gold')
+    if 'score' in session:
+        session.pop('score')
     return render_template('leaderboard.html', leaderboard=Attempt.best_attempt())
