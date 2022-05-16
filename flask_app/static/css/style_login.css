@@ -4,10 +4,16 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+body {
+    background-color: antiquewhite;
+    min-height: 400px;
+    margin-bottom: 400px;
+}
 .header{
-    width: 90%;
+    width: 100%;
     margin: auto;
-    background-color: gold;
+    padding: 5px 5%;
+    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,6 +30,10 @@
     text-align: center;
     justify-content: flex-end;
 }
+.login_btn {
+    padding: 0 10px;
+    background-color: greenyellow;
+}
 .body{
     width: 90%;
     margin: auto;
@@ -31,39 +41,45 @@
     justify-content: space-between;
 }
 .center_text{
-    width: 30%;
-    background-color: blueviolet;
+    width: 35%;
+    align-self: center;
+}
+.center_text > p{
+    text-align: center;
 }
 .errors{
-    width:25%;
-    background-color: aqua;
+    width:30%;
 }
 .register{
-    width: 25%;
-    background-color: red;
+    width: 30%;
+    background-color:lightblue;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 10%;
 }
 .form-btn{
     display: flex;
     justify-content: flex-end;
 }
 .bottom {
-    width: 90%;
-    margin: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-right: 5%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background-color: greenyellow;
 }
 .bottom > img{
     margin: 1%;
 }
 #cover3{
-    height: 300px;
+    height: 400px;
 }
 #cover2{
-    height: 200px;
+    height: 300px;
 }
 #cover1{
-    height: 100px;
+    height: 200px;
 }
 

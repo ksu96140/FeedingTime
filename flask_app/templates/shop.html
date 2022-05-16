@@ -12,58 +12,58 @@
     <div class="header">
         <h1>Mocha's Doggie Treats Shop</h1>
         <div class="headerButtons">
-            <a href="/score"><button>My Scores</button></a>
-            <a href="/logout"><button>Log Out</button></a>
+            <a href="/score"><button class="btn btn-secondary">My Scores</button></a>
+            <a href="/logout"><button class="btn btn-secondary">Log Out</button></a>
         </div>
     </div>
     <div class="shelf">
         <form action="/purchase" method="post">
             <div class="row1">
                 <figure>
-                    <img src="static\img\store_items\carrot.jpg" alt="carrot" class="shop_items">
+                    <img src="static\img\store_items\carrot.jpg" alt="carrot" class="shop_items img-thumbnail">
                     <figcaption>Price: $5</figcaption>
                     <input type="number" name="carrot" min="0" max="50" value="0">
                 </figure>
                 <figure>
-                    <img src="static\img\store_items\apple.jpg" alt="apple" class="shop_items">
+                    <img src="static\img\store_items\apple.jpg" alt="apple" class="shop_items img-thumbnail">
                     <figcaption>Price: $9</figcaption>
                     <input type="number" name="apple" min="0" max="50" value="0">
                 </figure>
                 <figure>
-                    <img src="static\img\store_items\rice.jpg" alt="white rice" class="shop_items">
+                    <img src="static\img\store_items\rice.jpg" alt="white rice" class="shop_items img-thumbnail">
                     <figcaption>Price: $8</figcaption>
                     <input type="number" name="rice" min="0" max="50" value="0">
                 </figure>
                 <figure>
-                    <img src="static\img\store_items\cheese.jpg" alt="cheese" class="shop_items">
+                    <img src="static\img\store_items\cheese.jpg" alt="cheese" class="shop_items img-thumbnail">
                     <figcaption>Price: $7</figcaption>
                     <input type="number" name="cheese" min="0" max="50" value="0">
                 </figure>
             </div>
             <div class="row2">
                 <figure>
-                    <img src="static\img\store_items\salmon.jpg" alt="fish" class="shop_items">
+                    <img src="static\img\store_items\salmon.jpg" alt="fish" class="shop_items img-thumbnail">
                     <figcaption>Price: $15</figcaption>
                     <input type="number" name="fish" min="0" max="50" value="0">
                 </figure>
                 <figure>
-                    <img src="static\img\store_items\chicken.jpg" alt="chicken" class="shop_items">
+                    <img src="static\img\store_items\chicken.jpg" alt="chicken" class="shop_items img-thumbnail">
                     <figcaption>Price: $12</figcaption>
                     <input type="number" name="chicken" min="0" max="50" value="0">
                 </figure>
                 <figure>
-                    <img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="shop_items">
+                    <img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="shop_items img-thumbnail">
                     <figcaption>Price: $3</figcaption>
                     <input type="number" name="blueberry" min="0" max="50" value="0">
                 </figure>
                 <figure>
-                    <img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="shop_items">
+                    <img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="shop_items img-thumbnail">
                     <figcaption>Price: $1</figcaption>
                     <input type="number" name="popcorn" min="0" max="50" value="0">
                 </figure>
             </div>
             <div class="row3">
-                <button>Purchace Items</button>
+                <button class="btn btn-warning">Purchace Items</button>
             </div>
             <div class="errors">
                 {% with messages = get_flashed_messages() %}
@@ -76,36 +76,39 @@
             </div>
         </form>
     </div>
-    <div class="start">
-        <a href="/start"><button>Start Feeding!</button></a>
-    </div>
-    <div class="bottom">
+    <div class="bottom border-top border-dark border-bottom">
         <div class="inventory">
-            <table class="table">
+            <table class="table align-middle">
                 <tr>
-                    <td><h2>Inventory</h2></td>
-                    <td><img src="static\img\store_items\carrot.jpg" alt="carrot" class="inventory_items"></td>
-                    <td><h3> x{{inventory['carrot']}} </h3></td>
-                    <td><img src="static\img\store_items\apple.jpg" alt="apple" class="inventory_items"></td>
-                    <td><h3> x{{inventory['apple']}} </h3></td>
-                    <td><img src="static\img\store_items\rice.jpg" alt="rice" class="inventory_items"></td>
-                    <td><h3> x{{inventory['rice']}} </h3></td>
-                    <td><img src="static\img\store_items\cheese.jpg" alt="cheese" class="inventory_items"></td>
-                    <td><h3> x{{inventory['cheese']}} </h3></td>
-                    <td><img src="static\img\store_items\salmon.jpg" alt="fish" class="inventory_items"></td>
-                    <td><h3> x{{inventory['fish']}} </h3></td>
-                    <td><img src="static\img\store_items\chicken.jpg" alt="chicken" class="inventory_items"></td>
-                    <td><h3> x{{inventory['chicken']}} </h3></td>
-                    <td><img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="inventory_items"></td>
-                    <td><h3> x{{inventory['blueberry']}} </h3></td>
-                    <td><img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="inventory_items"></td>
-                    <td><h3> x{{inventory['popcorn']}} </h3></td>
+                    <td><h2 class="inventory_title">Inventory</h2></td>
+                    <td><img src="static\img\store_items\carrot.jpg" alt="carrot" class="inventory_items rounded-circle"></td>
+                    <td><img src="static\img\store_items\apple.jpg" alt="apple" class="inventory_items rounded-circle"></td>
+                    <td><img src="static\img\store_items\rice.jpg" alt="rice" class="inventory_items rounded-circle"></td>
+                    <td><img src="static\img\store_items\cheese.jpg" alt="cheese" class="inventory_items rounded-circle"></td>
+                    <td><img src="static\img\store_items\salmon.jpg" alt="fish" class="inventory_items rounded-circle"></td>                    
+                    <td><img src="static\img\store_items\chicken.jpg" alt="chicken" class="inventory_items rounded-circle"></td>                   
+                    <td><img src="static\img\store_items\blueberry.jpg" alt="blueberry" class="inventory_items rounded-circle"></td>
+                    <td><img src="static\img\store_items\popcorn.jpg" alt="popcorn" class="inventory_items rounded-circle"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><h3> {{inventory['carrot']}} </h3></td>
+                    <td><h3> {{inventory['apple']}} </h3></td>
+                    <td><h3> {{inventory['rice']}} </h3></td>
+                    <td><h3> {{inventory['cheese']}} </h3></td>
+                    <td><h3> {{inventory['fish']}} </h3></td>
+                    <td><h3> {{inventory['chicken']}} </h3></td>
+                    <td><h3> {{inventory['blueberry']}} </h3></td>
+                    <td><h3> {{inventory['popcorn']}} </h3></td>
                 </tr>
             </table>
         </div>
         <div class="gold">
             <h2>Gold: ${{session['gold']}}</h2>
         </div>
+    </div>
+    <div class="play">
+        <a href="/start"><button class="feed_btn btn fs-4">Start Feeding!</button></a>
     </div>
 </body>
 </html>

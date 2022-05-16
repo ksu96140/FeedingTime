@@ -5,6 +5,8 @@ from flask_app.models.attempt import Attempt
 
 @app.route('/start')
 def startFeeding():
+    if 'inventory' not in session:
+        return redirect('/score')
     data = {
         'user_id' : session['user_id'],
         'id' : session['inventory']
@@ -36,9 +38,15 @@ def feed():
 
 @app.route('/end')
 def endFeeding():
+    if 'inventory' not in session:
+        return redirect('/score')
+    if 'attempt' not in session:
+        return redirect('/score')
     session.pop('inventory')
     return render_template('results.html')
 
 @app.route('/leaderboard')
 def leaderboard():
+    if 'player_id' in session:
+        session.pop('player_id')
     return render_template('leaderboard.html', leaderboard=Attempt.best_attempt())

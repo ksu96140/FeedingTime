@@ -55,6 +55,8 @@ def homepage():
         session.pop('attempt')
     if 'inventory' in session:
         session.pop('inventory')
+    if 'player_id' in session:
+        session.pop('player_id')
     if 'user_id' not in session:
         return redirect('/')
     data = {
@@ -70,6 +72,7 @@ def view_page(user_id):
     data = {
         'user_id' : user_id
     }
+    session['player_id'] = user_id
     user_data = User.view_player(data)
     all_attempts = Attempt.get_user_attempts(data)
     all_comments = Comment.get_all(data)

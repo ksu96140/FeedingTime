@@ -4,10 +4,16 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+body {
+    background-color: antiquewhite;
+    min-height: 400px;
+    margin-bottom: 400px;
+}
 .header{
-    width: 90%;
+    width: 100%;
     margin: auto;
-    background-color: gold;
+    padding: 5px 5%;
+    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,8 +28,10 @@
     margin: auto;
     align-items: center;
     text-align: center;
-    background-color: aquamarine;
 }
-.center > img {
+.result_pic {
     height: 600px;
+    border-radius: 50%;
+    border: 10px solid yellowgreen;
+    margin: 10px 0;
 }

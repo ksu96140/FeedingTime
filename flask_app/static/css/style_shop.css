@@ -4,10 +4,16 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+body {
+    background-color: antiquewhite;
+    min-height: 400px;
+    margin-bottom: 400px;
+}
 .header{
-    width: 90%;
+    width: 100%;
     margin: auto;
-    background-color: gold;
+    padding: 5px 5%;
+    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,41 +24,36 @@
     align-items: center;
 }
 .shelf {
-    width: 90%;
     margin: auto;
-    background-color: bisque;
+    padding: 20px 5%;
 }
 .row1, .row2 {
     display: flex;
     justify-content: space-around;
 }
 .row3 {
-    width: 100%;
     margin: 15px auto;
     display: flex;
     justify-content: center;
-    background-color: grey;
-}
-.start {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    background-color: grey;
 }
 .bottom {
-    width: 90%;
+    padding: 10px 5% 0 5%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: greenyellow;
+    background-color: rgb(61, 218, 61);
+    text-align: center;
 }
 .shop_items {
     height: 150px;
 }
 .inventory_items {
     height: 60px;
+    margin: 0 5px;
+}
+.inventory_title {
+    margin: 0 5px;
 }
 figcaption {
     text-align: center;
@@ -66,4 +67,17 @@ figure > input {
 }
 td {
     vertical-align: middle;
+}
+.play{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
+.feed_btn {
+    height: 70px;
+    background-color: rgb(136, 226, 160);
 }

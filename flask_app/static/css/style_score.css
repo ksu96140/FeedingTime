@@ -4,10 +4,16 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+body {
+    background-color: antiquewhite;
+    min-height: 400px;
+    margin-bottom: 70px;
+}
 .header{
-    width: 90%;
+    width: 100%;
     margin: auto;
-    background-color: gold;
+    padding: 5px 5%;
+    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,16 +25,30 @@
 }
 .body {
     margin: auto;
-    width: 90%;
+    padding: 5px 5%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     height: 60%;
-    background-color: blueviolet;
 }
 .shop {
-    width: 90%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
-    background-color: grey;
+    background-color: rgb(119, 119, 119);
+}
+.left, .right{
+    width: 40%;
+    text-align: center;
+}
+.feed_btn {
+    height: 70px;
+    background-color: rgb(136, 226, 160);
+}
+.comment_form {
+    display: flex;
+    justify-content: center;
 }

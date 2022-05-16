@@ -12,14 +12,14 @@
     <div class="header">
         <h1>Welcome, {{session['user_name']}}!</h1>
         <div class="headerButtons">
-            <a href="/leaderboard"><button>Leaderboard</button></a>
-            <a href="/logout"><button>Log Out</button></a>
+            <a href="/leaderboard"><button class="btn btn-secondary">Leaderboard</button></a>
+            <a href="/logout"><button class="btn btn-secondary">Log Out</button></a>
         </div>
     </div>
     <div class="body">
         <div class="left">
-            <h1>My Attempts</h1>
-            <table class="table">
+            <h1>Attempts</h1>
+            <table class="table table-dark table-striped table-hover align-middle">
                 <thead>
                     <tr>
                         <th>Best Attempts</th>
@@ -40,7 +40,7 @@
         </div>
         <div class="right">
             <h1>Comments</h1>
-            <table class="table">
+            <table class="table table-light table-striped table-hover align-middle">
                 <thead>
                     <tr>
                         <th>Comment</th>
@@ -53,12 +53,12 @@
                     {% for comment in comments %}
                     <tr>
                         <td>{{comment['comment']}}</td>
-                        <td>-{{comment['name']}}</td>
+                        <td>-<a href="/score/{{comment['commenter_id']}}">{{comment['name']}}</a></td>
                         <td>{{comment['updated_at']}}</td>
                         <td>
                             <form action="/delete_comment" method="post">
                                 <input type="hidden" name="id" value="{{comment['id']}}">
-                                <button>DELETE</button>
+                                <button class="btn btn-danger">DELETE</button>
                             </form>
                         </td>
                     </tr>
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="shop">
-        <a href="/shop_new"><button>Start Next Feeding Session!</button></a>
+        <a href="/shop_new"><button class="feed_btn btn fs-4">Start Next Feeding Session!</button></a>
     </div>
     
 </body>

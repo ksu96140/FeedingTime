@@ -22,16 +22,16 @@ class Attempt:
         query = "SELECT * FROM attempts WHERE id=%(id)s"
         return connectToMySQL(cls.db).query_db(query, data)
     
-    #get top 10 attempts
+    #get top 15 attempts
     @classmethod
     def get_user_attempts(cls, data):
         query = "SELECT * FROM attempts WHERE user_id=%(user_id)s ORDER BY score desc LIMIT 10"
         return connectToMySQL(cls.db).query_db(query, data)
 
-    #get best attempt of all users
+    #get best attempt of all users (top 20)
     @classmethod
     def best_attempt(cls):
-        query = "SELECT MAX(score), attempts.updated_at, users.first_name, users.last_name, user_id FROM attempts JOIN users ON attempts.user_id=users.id GROUP BY user_id ORDER BY MAX(score) desc"
+        query = "SELECT MAX(score), attempts.updated_at, users.first_name, users.last_name, user_id FROM attempts JOIN users ON attempts.user_id=users.id GROUP BY user_id ORDER BY MAX(score) desc LIMIT 20"
         return connectToMySQL(cls.db).query_db(query)
     
     #update score

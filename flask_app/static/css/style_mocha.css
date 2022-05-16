@@ -4,21 +4,31 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+body {
+    background-color: antiquewhite;
+    min-height: 400px;
+    margin-bottom: 400px;
+}
 .title {
-    width: 90%;
+    width: 100%;
     margin: auto;
-    background-color: yellow;
+    padding: 5px 5%;
+    background-color: lightgray;
     text-align: center;
 }
+.title > h5 {
+    color: red;
+}
 .center_img{
-    width: 90%;
     margin: auto;
+    padding: 2%;
     display: flex;
     justify-content: center;
-    background-color: bisque;
 }
 .mocha{
     height: 500px;
+    border-radius: 50%;
+    border: 10px solid yellowgreen;
 }
 .end{
     width: 90%;
@@ -28,21 +38,25 @@
     background-color: grey;
 }
 .bottom {
-    width: 90%;
+    padding: 10px 5% 0 5%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: greenyellow;
+    background-color: rgb(61, 218, 61);
 }
 .inventory_items {
     height: 60px;
+    margin: 0 5px;
 }
 td {
     vertical-align: middle;
     text-align: center;
 }
 input[type='number']{
-    width: 35px;
-} 
+    width: 45px;
+}
+.feed_btn {
+    height: 35px;
+}

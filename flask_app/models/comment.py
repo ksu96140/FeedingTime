@@ -19,7 +19,7 @@ class Comment:
     #get all comments for user
     @classmethod
     def get_all(cls, data):
-        query = "SELECT * FROM comments WHERE user_id=%(user_id)s"
+        query = "SELECT * FROM comments WHERE user_id=%(user_id)s ORDER BY updated_at desc LIMIT 10"
         return connectToMySQL(cls.db).query_db(query, data)
     
     #get single comment

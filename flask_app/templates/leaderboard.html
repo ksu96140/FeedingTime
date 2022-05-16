@@ -12,14 +12,15 @@
     <div class="header">
         <h1>Leaderboard</h1>
         <div class="headerButtons">
-            <a href="/score"><button>My Scores</button></a>
-            <a href="/logout"><button>Log Out</button></a>
+            <a href="/score"><button class="btn btn-secondary">My Scores</button></a>
+            <a href="/logout"><button class="btn btn-secondary">Log Out</button></a>
         </div>
     </div>
     <div class="center">
-        <table class="table">
+        <table class="table table-danger align-middle table-hover">
             <thead>
                 <tr>
+                    <th>Ranking</th>
                     <th>Player Name</th>
                     <th>Best Score</th>
                     <th>Attempt Date</th>
@@ -29,6 +30,7 @@
             <tbody>
                 {% for highscore in leaderboard %}
                 <tr>
+                    <td>{{loop.index}}</td>
                     {% if highscore['user_id'] == session['user_id'] %}
                     <td>{{highscore['first_name'] + ' ' + highscore['last_name']}}</td>
                     {% else %}
@@ -40,11 +42,11 @@
                         {% if highscore['user_id'] == session['user_id'] %}
                             *YOU*
                         {% else %}
-                        <form action="/comment" method="post">
+                        <form action="/comment" method="post" class="comment_form">
                             <input type="hidden" name="name" value="{{session['user_name']}}">
                             <input type="hidden" name="user_id" value="{{highscore['user_id']}}">
                             <textarea name="comment" rows="2" cols="30"></textarea>
-                            <button>Post</button>
+                            <button class="btn btn-warning">Post</button>
                         </form>
                         {% endif %}
                     </td>
@@ -54,7 +56,7 @@
         </table>
     </div>
     <div class="back">
-        <a href="/shop_new"><button>Start Next Feeding Session!</button></a>
+        <a href="/shop_new"><button class="feed_btn btn fs-4">Start Next Feeding Session!</button></a>
     </div>
 </body>
 </html>

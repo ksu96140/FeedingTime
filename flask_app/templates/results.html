@@ -11,28 +11,28 @@
 <body>
     <div class="header">
         {% if session['score'] >= 150 %}
-            <h1>Mocha is Happy!</h1>
+            <h1 style="color: rgb(22, 193, 22)">Mocha is Happy!</h1>
         {% elif session['score'] >= 80 and session['score'] < 150 %}
-            <h1>Mocha wants more!!</h1>
+            <h1 style="color: rgb(67, 67, 247)">Mocha wants more!!</h1>
         {% else %}
-            <h1>Mocha is still hungry!!!</h1>
+            <h1 style="color: red">Mocha is still hungry!!!</h1>
         {% endif %}
         <div class="headerButtons">
-            <a href="/score"><button>My Scores</button></a>
-            <a href="/logout"><button>Log Out</button></a>
+            <a href="/score"><button class="btn btn-secondary">My Scores</button></a>
+            <a href="/logout"><button class="btn btn-secondary">Log Out</button></a>
         </div>
     </div>
     <div class="center">
         {% if session['score'] >= 150 %}
-            <img src="static\img\mocha_pics\mocha_happy.jpeg" alt="mocha_happy">
+            <img src="static\img\mocha_pics\mocha_happy.jpeg" alt="mocha_happy" class="result_pic">
         {% elif session['score'] >= 80 and session['score'] < 150 %}
-            <img src="static\img\mocha_pics\mocha_wants_more.jpeg" alt="mocha_wants_more">
+            <img src="static\img\mocha_pics\mocha_wants_more.jpeg" alt="mocha_wants_more" class="result_pic">
         {% else %}
-            <img src="static\img\mocha_pics\mocha_hungry.jpg" alt="mocha_hungry">
+            <img src="static\img\mocha_pics\mocha_hungry.jpg" alt="mocha_hungry" class="result_pic">
         {% endif %}
         
         <h4>My Score: {{session['score']}}</h4>
-        <a href="/leaderboard"><button>Leaderboard</button></a>
+        <a href="/leaderboard"><button class="btn btn-dark">Leaderboard</button></a>
     </div>
 </body>
 </html>

@@ -19,7 +19,7 @@
                 <input type="password" name="password" placeholder="password">
             </div>
             <div>
-                <button>Login</button>
+                <button class="login_btn">Login</button>
             </div>
         </form>
     </div>
@@ -74,7 +74,7 @@
             {% endwith %}
         </form>
         <div class="center_text">
-            <p>This is Mocha! She is a Pomeranian, almost 2 years old, always happy and energetic. My family got her from the shelter after her owner abandoned her when she was around 8 months old. She is always hungry, will you feed her?</p>
+            <p class="fs-4">This is Mocha! She is a Pomeranian, almost 2 years old, always happy and energetic. My family got her from the shelter after her owner abandoned her when she was around 8 months old. She is always hungry, will you feed her?</p>
         </div>
         <div class="errors">
             {% with messages = get_flashed_messages(category_filter=["login"]) %}
@@ -87,9 +87,9 @@
         </div>
     </div>
     <div class="bottom">
-        <img src="static\img\mocha_pics\login_cover1.jpg" alt="pic1" id="cover1">
-        <img src="static\img\mocha_pics\login_cover2.jpg" alt="pic2" id="cover2">
-        <img src="static\img\mocha_pics\login_cover3.jpeg" alt="pic3" id="cover3">
+        <img src="static\img\mocha_pics\login_cover1.jpg" alt="pic1" id="cover1" class="img-thumbnail">
+        <img src="static\img\mocha_pics\login_cover2.jpg" alt="pic2" id="cover2" class="img-thumbnail">
+        <img src="static\img\mocha_pics\login_cover3.jpeg" alt="pic3" id="cover3" class="img-thumbnail">
     </div>
 </body>
 </html>

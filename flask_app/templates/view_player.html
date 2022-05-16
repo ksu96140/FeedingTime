@@ -12,17 +12,17 @@
     <div class="header">
         <h1>{{user.first_name}}'s Page</h1>
         <div class="headerButtons">
-            <a href="/leaderboard"><button>Leaderboard</button></a>
-            <a href="/logout"><button>Log Out</button></a>
+            <a href="/leaderboard"><button class="btn btn-secondary">Leaderboard</button></a>
+            <a href="/logout"><button class="btn btn-secondary">Log Out</button></a>
         </div>
     </div>
     <div class="body">
         <div class="left">
-            <h1>My Attempts</h1>
-            <table class="table">
+            <h1>Attempts</h1>
+            <table class="table table-dark table-striped table-hover align-middle">
                 <thead>
                     <tr>
-                        <th>Attempt #</th>
+                        <th>Best Attempts</th>
                         <th>Score</th>
                         <th>Attempt Date</th>
                     </tr>
@@ -40,7 +40,7 @@
         </div>
         <div class="right">
             <h1>Comments</h1>
-            <table class="table">
+            <table class="table table-light table-striped table-hover align-middle">
                 <thead>
                     <tr>
                         <th>Comment</th>
@@ -61,21 +61,31 @@
                             </td>
                             <td>-{{comment['name']}}</td>
                             <td>{{comment['updated_at']}}</td>
-                            <td><button>EDIT</button></td>
+                            <td><button class="btn btn-primary">EDIT</button></td>
                         </form>
                         {% else %}
                         <td>{{comment['comment']}}</td>
                         <td>-{{comment['name']}}</td>
                         <td>{{comment['updated_at']}}</td>
+                        <td></td>
                         {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
+            <div class="comment_bar">
+                <form action="/comment_player" method="post" class="comment_form">
+                    <input type="hidden" name="name" value="{{session['user_name']}}">
+                    <input type="hidden" name="user_id" value="{{session['player_id']}}">
+                    <textarea name="comment" rows="2" cols="30"></textarea>
+                    <button class="btn btn-warning">Post a Comment</button>
+                </form>
+            </div>
         </div>
     </div>
+    
     <div class="shop">
-        <a href="/score"><button>Back to Home Page</button></a>
+        <a href="/score"><button class="feed_btn btn fs-4">Back to Home Page</button></a>
     </div>
     
 </body>

@@ -14,6 +14,19 @@ def comment():
     Comment.comment(data)
     return redirect('/leaderboard')
 
+#comment on player wall
+@app.route('/comment_player', methods=['POST'])
+def comment_player():
+    data = {
+        'user_id' : request.form['user_id'],
+        'commenter_id' : session['user_id'],
+        'name' : request.form['name'],
+        'comment' : request.form['comment']
+    }
+    Comment.comment(data)
+    player_id = session['player_id']
+    return redirect(f'/score/{player_id}')
+
 #delete this comment
 @app.route('/delete_comment', methods=['POST'])
 def delete():

@@ -4,10 +4,16 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+body {
+    background-color: antiquewhite;
+    min-height: 400px;
+    margin-bottom: 70px;
+}
 .header{
-    width: 90%;
+    width: 100%;
     margin: auto;
-    background-color: gold;
+    padding: 5px 5%;
+    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,14 +27,26 @@
     width: 90%;
     margin: auto;
     background-color: green;
+    text-align: center;
 }
 table {
     margin: auto;
+    margin-top: 5px;
 }
 .back{
-    width: 90%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
     background-color: grey;
+}
+.feed_btn {
+    height: 70px;
+    background-color: rgb(136, 226, 160);
+}
+.comment_form {
+    display: flex;
+    justify-content: center;
 }
